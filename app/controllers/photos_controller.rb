@@ -6,6 +6,7 @@ class PhotosController < ApplicationController
 
   def show
     @the_id = params.fetch("photo_id")
+    @photo = Photo.find(@the_id)
     render({:template => "photos/show"})
   end
 end
