@@ -1,5 +1,6 @@
 class PhotosController < ApplicationController
   def list
+    @list_of_photos = Photo.all
     render({:template => "photos/photo_list"})
   end
 
