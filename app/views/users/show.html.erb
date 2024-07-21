@@ -5,7 +5,19 @@
 </p>
 
 <p>Edit user
-<br> <em>insert form to edit</em>
+<br> 
+<form action="/users/update/<%=@username%>" method="post">
+  <div>
+    <label for="username_box">
+      Username
+    </label>
+    <input type="text" id="username_box" name="new_username" value="<%= @user.username %>">
+
+  <button>
+    Update user
+  </button>
+  </div>
+</form>
 </p>
 
 <h2>Own photos (<%=@user.own_photos.length%>)

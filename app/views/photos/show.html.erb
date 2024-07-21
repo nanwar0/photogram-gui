@@ -1,16 +1,45 @@
 <h1>Photo Details</h1>
 
-<p>Image</p>
+<p>Image
+<br> <img src="<%=@photo.image%>">
+</p>
 
-<p>Caption</p>
+<p>Caption
+<br> <%=@photo.caption%>
+</p>
 
-<p>Owner</p>
+<p>Owner
+<br> <%=@photo.poster.username%>
+</p>
 
-<p>Posted</p>
+<p>Posted
+<br> <%=@photo.created_at%>
+</p>
 
-<p>Edit photo</p>
+<p>Edit photo
+<br> 
+<form action="/photos/update/<%=@photo.id%>" method="post">
+  <div>
+    <label for="image_box">
+      Image
+    </label>
+    <input type="text" id="image_box" name="new_image" value="<%= @photo.image %>">
 
-<p>Delete photo</p>
+    <label for="caption_box">
+      Caption
+    </label>
+    <input type="text" id="caption_box" name="new_caption" value="<%= @photo.caption %>">
+
+  <button>
+    Update photo
+  </button>
+  </div>
+</form>
+</p>
+
+<p>Delete photo
+<br> Delete this photo
+</p>
 
 <h2>Comments</h2>
 
@@ -44,3 +73,9 @@
       </td>
     </tr>
 <%end%>
+
+</table>
+
+<h3>Add a new comment</h3>
+
+<p>Insert form to add a new comment</p>
