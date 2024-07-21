@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     @user = User.where({:username => @username}).at(0)
 
     @user.username = params.fetch("new_username")
+    @username = @user.username
     render({:template => "users/show"})
   end
 end
