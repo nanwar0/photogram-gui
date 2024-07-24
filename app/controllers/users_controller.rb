@@ -18,4 +18,15 @@ class UsersController < ApplicationController
     @username = @user.username
     render({:template => "users/show"})
   end
+
+  def add
+    @user = User.new
+    @user.username = params.fetch("new_username")
+    @user.save
+
+    @username = @user.username
+
+    render({:template => "users/show"})
+  end
+
 end
