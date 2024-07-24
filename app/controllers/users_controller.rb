@@ -16,7 +16,9 @@ class UsersController < ApplicationController
 
     @user.username = params.fetch("new_username")
     @username = @user.username
-    render({:template => "users/show"})
+
+    @user.save
+    redirect_to("/users/" + @username)
   end
 
   def add
@@ -26,7 +28,7 @@ class UsersController < ApplicationController
 
     @username = @user.username
 
-    render({:template => "users/show"})
+    redirect_to("/users/" + @username)
   end
 
 end
